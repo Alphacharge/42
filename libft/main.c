@@ -6,11 +6,12 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/24 13:48:09 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/03/24 19:12:20 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <strings.h>
 #include "ft_isalpha.c"
 #include "ft_isdigit.c"
 #include "ft_isalnum.c"
@@ -18,12 +19,17 @@
 #include "ft_isprint.c"
 #include "ft_strlen.c"
 #include "ft_memset.c"
-void	*ft_memset(unsigned char *b, int c, int len);
+#include "ft_bzero.c"
+#include "ft_memcpy.c"
 
+#define RED "\033[1;31m"
+#define GREEN "\033[01;32m"
+#define NC "\033[0m"
 
 int	main(void)
 {
-	char	w[7] = "Hallo5-";
+	char	w[8] = "Hallo5-";
+	char	x[4] = "-5o";
 	printf("%s\n", "ft_isalpha (1,0):");
 	printf("%d\n",ft_isalpha(w[0]));
 	printf("%d\n",ft_isalpha(w[5]));
@@ -57,5 +63,27 @@ int	main(void)
 	ft_memset(w, '_', 2);
 	printf("%s\n", w);
 
+	printf("%s\n", "ft_bzero (_ll):");
+	printf("%s\n", w);
+	ft_bzero(w, 1);
+	printf("%c%c%c%c\n", w[0],w[1],w[2],w[3]);
+
+	printf("%s\n", "ft_memcpy (-5olo5-):");
+	printf("%c%c%c%c%c%c%c\n", w[0],w[1],w[2],w[3],w[4],w[5],w[6]);
+	ft_memcpy(w, x, 3);
+	printf("%s\n", w);
+	printf(RED"%s\n"NC, "EDGECASE__ft_memcpy (-5-5-5-):");
+	printf("%c%c%c%c%c%c%c\n", w[0],w[1],w[2],w[3],w[4],w[5],w[6]);
+	ft_memcpy(&w[2], &w[0], 4);
+	printf("%s\n", w);
+
+	printf("%s\n", "ft_memmove (5-55-5-):");
+	printf("%c%c%c%c%c%c%c\n", w[0],w[1],w[2],w[3],w[4],w[5],w[6]);
+	ft_memcpy(&w[0], &w[3], 3);
+	printf("%s\n", w);
+	printf(RED"%s\n"NC, "EDGECASE__ft_memmove (-5-5-5-):");
+	printf("%c%c%c%c%c%c%c\n", w[0],w[1],w[2],w[3],w[4],w[5],w[6]);
+	ft_memmove(&w[2], &w[1], 4);
+	printf("%s\n", w);
 	return (0);
 }

@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/24 13:33:24 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/24 19:12:21 by rbetz            ###   ########.fr       */
+/*   Created: 2022/03/24 17:34:37 by rbetz             #+#    #+#             */
+/*   Updated: 2022/03/24 19:12:16 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(const char *s)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	char	*d;
+	char	*s;
+	int		i;
 
+	d = (char *)dst;
+	s = (char *)src;
 	i = 0;
-	while (s[i] != '\0')
+	if (d > s)
 	{
-		i++;
+		while (i < len)
+		{
+			d[i] = s[i];
+			i++;
+		}
 	}
-	return (i);
+	else
+	{
+		
+	}
+	
+	return (dst);
 }

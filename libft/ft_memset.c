@@ -6,15 +6,21 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:09:34 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/23 14:46:55 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/03/24 19:12:23 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(unsigned char *b, int c, int len)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	while (len-- > 0)
+	char	*d;
+	int		i;
+
+	d = (char *)b;
+	i = 0;
+	while (i < len)
 	{
-		*b++ = c;
+		d[i] = c;
+		i++;
 	}
 	return (b);
 }
