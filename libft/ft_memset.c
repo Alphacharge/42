@@ -6,14 +6,14 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:09:34 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/24 19:12:23 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/03/25 12:02:36 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memset(void *b, int c, unsigned int len)
 {
-	char	*d;
-	int		i;
+	char				*d;
+	unsigned int		i;
 
 	d = (char *)b;
 	i = 0;
