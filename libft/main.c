@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/25 11:43:11 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/03/25 18:51:18 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,14 @@ int	main(void)
 	printf("%c%c%c%c%c%c%c\n", w[0],w[1],w[2],w[3],w[4],w[5],w[6]);
 	ft_memmove(&w[2], &w[1], 4);
 	printf("%s\n", w);
+
+	char	y[8] = "Hallo5-";
+	printf(GREEN"%s\n"NC, "ft_toupper (a,A):");
+	printf("%c\n", y[1]);
+	printf("%c\n", ft_toupper(y[1]));
+
+	printf(GREEN"%s\n"NC, "ft_tolower (H,h):");
+	printf("%c\n", y[0]);
+	printf("%c\n", ft_tolower(y[0]));
 	return (0);
 }
