@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 12:09:34 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/29 17:33:00 by rbetz            ###   ########.fr       */
+/*   Created: 2022/03/28 09:59:11 by rbetz             #+#    #+#             */
+/*   Updated: 2022/03/29 17:36:51 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*d;
 	size_t	i;
+	unsigned char	*p;
 
-	d = (char *)b;
 	i = 0;
-	while (i < len)
-	{
-		d[i] = c;
+	p = (unsigned char *)s;
+	while ((p[i] != '\0') && (p[i] != c) && (i < n))
 		i++;
-	}
-	return (b);
+	if (((p[i] == '\0') && (p[i] != c)) || (i == n))
+		return (0);
+	else
+		return (&p[i]);
 }

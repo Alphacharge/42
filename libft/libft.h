@@ -6,12 +6,15 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:33:22 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/25 18:35:27 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/03/29 17:35:20 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+#include <stddef.h>
+
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -21,9 +24,16 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 int		ft_strlen(const char *s);
-void	*ft_memcpy(void *dst, const void *src, unsigned int n);
-void	*ft_memmove(void *dst, const void *src, unsigned int len);
-void	*ft_memset(void *b, int c, unsigned int len);
-void	ft_bzero(void *s, unsigned int n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+void	ft_bzero(void *s, size_t n);
+void	*ft_memcpy(void *dst, const void *src, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+void	*ft_memset(void *b, int c, size_t len);
+void	*ft_memchr(const void *s, int c, size_t n);
 
 #endif
