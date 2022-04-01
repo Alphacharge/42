@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 09:59:11 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/31 17:43:10 by rbetz            ###   ########.fr       */
+/*   Created: 2022/04/01 15:02:13 by rbetz             #+#    #+#             */
+/*   Updated: 2022/04/01 15:42:24 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	size_t	i;
-	char	*p;
-
-	i = 0;
-	p = (char *)s;
-	while ((p[i] != '\0') && (p[i] != c) && (i < n))
-		i++;
-	if (((p[i] == '\0') && (p[i] != c)) || (i == n))
-		return (0);
-	else
-		return (&p[i]);
+	char	*ptr;
+	ptr = malloc(ft_strlen(s1)+1 * sizeof(char));
+	if (ptr == NULL)
+		return (NULL);
+	return ((char *) ft_memcpy(ptr, s1, (size_t)ft_strlen(s1)+1));
 }

@@ -6,7 +6,7 @@
 #    By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/25 14:21:20 by rbetz             #+#    #+#              #
-#    Updated: 2022/03/29 15:47:25 by rbetz            ###   ########.fr        #
+#    Updated: 2022/04/01 16:07:28 by rbetz            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ $(NAME): ft_*.o
 	@$(CC) $(CFLAGS) -c ft_*.c libft.h
 
 clean: 
-	@/bin/rm -f *.o
+	@/bin/rm -f *.o *.gch
 
 fclean: clean
 	@/bin/rm -f $(NAME)

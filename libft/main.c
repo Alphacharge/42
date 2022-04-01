@@ -6,12 +6,13 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/29 17:40:44 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/01 16:44:53 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <strings.h>
+#include <stdlib.h>
 #include "libft.h"
 
 #define RED "\033[1;31m"
@@ -116,11 +117,48 @@ int	main(void)
 	printf("%s\n", y);
 	printf("%zu\n", strlcpy(y, x, 3));
 
-	char	m[12] = "Hallo5-";
-	printf(GREEN"%s\n"NC, "ft_strlcat (Hallo--5o, 13):");
-	printf("%s,%s,%d\n", m,x,10);
-	ft_strlcat(m, x, 12);
+	char	m[15] = "Hallo5-";
+	printf(GREEN"%s\n"NC, "ft_strlcat (Hallo--5o, 10):");
+	printf("%s,%s,%d\n", m,m,12);
+	//printf("%lu\n", strlcat(m, m, 12));
+	printf("%lu\n", ft_strlcat(m, m, 12));
 	printf("%s\n", m);
-	printf("%lu\n", ft_strlcat(m, x, 10));
+
+	char	g[15] = "Hallo5-";
+	char	h[20] = "lo";
+	char	i[20] = " 1548";
+	char	j[20] = "	-1548";
+	printf(GREEN"%s\n"NC, "ft_strnstr (lo5-):");
+	printf("%s,%s,%d\n", g,h,12);
+	printf("%s\n", ft_strnstr(g, h, 12));
+	printf(RED"%s\n"NC, "EDGECASE__ft_strnstr (0):");
+	printf("%s,%s,%d\n", g,h,2);
+	printf("%s\n", ft_strnstr(g, h, 2));
+
+	printf(GREEN"%s\n"NC, "ft_atoi (0,1548):");
+	printf("%s,%s\n", g,i);
+	printf("Origi:%d\n\n", atoi(g));
+	printf("Meins:%d\n\n", ft_atoi(g));
+	printf("Origi:%d\n\n", atoi(h));
+	printf("Meins:%d\n\n", ft_atoi(h));
+	printf("Origi:%d\n\n", atoi(i));
+	printf("Meins:%d\n\n", ft_atoi(i));
+	printf("Origi:%d\n\n", atoi(j));
+	printf("Meins:%d\n\n", ft_atoi(j));
+
+	char	l[20] = "";
+	printf(GREEN"%s\n"NC, "ft_strdup (lo5-):");
+	printf("%s\n", g);
+	printf("%s\n", ft_strdup(g));
+	printf(RED"%s\n"NC, "EDGECASE__ft_strdup (0):");
+	printf("%s\n", l);
+	printf("%s\n", ft_strdup(l));
+
+	printf(GREEN"%s\n"NC, "ft_substr (lo5):");
+	printf("%s\n", g);
+	printf("%s\n", ft_substr(g,3,3));
+	printf(RED"%s\n"NC, "EDGECASE__ft_substr (5xxx):");
+	printf("%s\n", g);
+	printf("%s\n", ft_substr(g,7,4));
 	return (0);
 }
