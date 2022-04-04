@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/01 16:44:53 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/04 12:44:17 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,5 +160,16 @@ int	main(void)
 	printf(RED"%s\n"NC, "EDGECASE__ft_substr (5xxx):");
 	printf("%s\n", g);
 	printf("%s\n", ft_substr(g,7,4));
+
+	printf(GREEN"%s\n"NC, "ft_strjoin (lo5-):");
+	printf("%s,%s\n", g,i);
+	printf("%s\n", ft_strjoin(g,i));
+	printf(RED"%s\n"NC, "EDGECASE__ft_strjoin (0):");
+	printf("%s,%s\n", g,i);
+	printf("%s\n", ft_strjoin(l,l));
+	
+	printf(GREEN"%s\n"NC, "ft_strtrim (lo5-):");
+	printf("%s,%s\n", g,h);
+	printf("%s\n", ft_strtrim(g,h));
 	return (0);
 }
