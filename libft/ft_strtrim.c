@@ -11,65 +11,40 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-static int	ft_comparef(char const *c, char const *ptr)
+
+static int	ft_isinset(char const c, char const *ptr)
 {
 	int	i;
-	int	j;
 	
 	i = 0;
-	j = 0;
-	while (c[i] != '\0')
-	{
-		j = 0;
-		while (ptr[j] != '\0')
-			{
-				if (c[i] == ptr[j])
-					return (i+1);
-				j++;
-			}
+	while (ptr[i] != c && ptr[i] != '\0')
 		i++;
-	}
+	if (ptr[i] != '\0')
+		return (1);
 	return (0);
 }
 
-static int	ft_compareb(char const *c, char const *ptr, int	len)
-{
-	int	j;
-	
-	j = 0;
-	while (len >= 0)
-	{
-		j = 0;
-		while (ptr[j] != '\0')
-			{
-				if (c[len] == ptr[j])
-					return (len-1);
-				j++;
-			}
-		len--;
-	}
-	return (0);
-}
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		lens;
 	int		pos1;
 	int		pos2;
-	int		length;
-	char	*ptr;
+	char		*ptr;
 
-	lens = ft_strlen(s1);
-	pos1 = ft_comparef(s1, set);
-	pos2 = ft_compareb(s1, set, lens);
-	length = pos2 - pos1 + 1;
-	ptr = malloc(length);
+	pos1 = 0;
+	pos2 = ft_strlen(s1);
+	ptr = (char *)s1;
+	while (ft_isinset(s1[pos1], set))
+		pos1++;
+	while (pos2 > pos1 && ft_isinset(s1[pos2], set))
+		pos2--;
+	if ((pos2 - pos1 + 1) > 1)
+		ptr = malloc(pos2 - pos1 + 1);
 	if (ptr == NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	ft_memcpy(ptr, &s1[pos1], length - 1);
-	ptr[length] = '\0';
+	ft_memcpy(ptr, &s1[pos1], pos2 - pos1);
+	ptr[pos2 - pos1 + 1] = '\0';
 	return (ptr);
-	
 }

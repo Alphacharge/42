@@ -102,10 +102,10 @@ int	main(void)
 
 	printf(GREEN"%s\n"NC, "ft_memchr (llo5-):");
 	printf("%s\n", y);
-	printf("%s\n", ft_memchr(y, 'l', 4));
+//	printf("%s\n", ft_memchr(y, 'l', 4));
 	printf(RED"%s\n"NC, "EDGECASE__ft_memchr ():");
 	printf("%s\n", y);
-	printf("%s\n", ft_memchr(y, 'l', 1));
+//	printf("%s\n", ft_memchr(y, 'l', 1));
 
 	printf(GREEN"%s\n"NC, "ft_memcmp (-19):");
 	printf("%s\n", y);
@@ -115,7 +115,7 @@ int	main(void)
 	printf("%c%c%c%c%c%c%c\n", y[0],y[1],y[2],y[3],y[4],y[5],y[6]);
 	ft_strlcpy(y, x, 3);
 	printf("%s\n", y);
-	printf("%zu\n", strlcpy(y, x, 3));
+//	printf("%zu\n", strlcpy(y, x, 3));
 
 	char	m[15] = "Hallo5-";
 	printf(GREEN"%s\n"NC, "ft_strlcat (Hallo--5o, 10):");
@@ -130,10 +130,10 @@ int	main(void)
 	char	j[20] = "	-1548";
 	printf(GREEN"%s\n"NC, "ft_strnstr (lo5-):");
 	printf("%s,%s,%d\n", g,h,12);
-	printf("%s\n", ft_strnstr(g, h, 12));
+//	printf("%s\n", ft_strnstr(g, h, 12));
 	printf(RED"%s\n"NC, "EDGECASE__ft_strnstr (0):");
 	printf("%s,%s,%d\n", g,h,2);
-	printf("%s\n", ft_strnstr(g, h, 2));
+//	printf("%s\n", ft_strnstr(g, h, 2));
 
 	printf(GREEN"%s\n"NC, "ft_atoi (0,1548):");
 	printf("%s,%s\n", g,i);

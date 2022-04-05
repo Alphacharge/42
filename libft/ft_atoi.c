@@ -11,10 +11,25 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+static int	ft_isspace(char c)
+{	
+	if (c == '\t' || c == '\v' || c == '\f'
+			|| c == '\r' || c == '\n' || c == ' ')
+			return (1);
+	return (0);
+}
 
+static unsigned int	ft_isillegal(unsigned int	i, int vz)
+{	
+	if ((i <= 2147483648 && vz == -1) || (i <= 2147483647 && vz == 1))
+		return (0);
+	else 
+		return (1);
+}
+/*
 int	ft_atoi(const char *str)
 {
-	char			*p;
+	char				*p;
 	int				vz;
 	unsigned int	c;
 	unsigned int	i;
@@ -58,34 +73,32 @@ int	ft_atoi(const char *str)
 		}
 	}
 	return ((int)(c * vz));
-}
-/*
+}*/
+int	ft_atoi(const char *str)
 {
-	unsigned int	v;
+	char				*p;
+	int				vz;
+	unsigned int	c;
 
-	// 1) Skip Whitespace
-	while (ft_isspace(*s))
-		s++;
-	// 2) Check prefix sign
-	if (*s == '-')
+	p = (char *)str;
+	vz = 1;
+	c = 0;
+	while (ft_isspace(*p))
+		p++;
+	if (*p == '-')
 	{
-		sign = -1;
-		s++;
+		vz = -1;
+		p++;
 	}
-	else if (*s == '+')
-		s++;
-	// 3) Return if not a number
-	if (!is_digit(*s))
+	else if (*p == '+')
+		p++;
+	if (!ft_isdigit(*p))
 		return (0);
-	// 4) Loop
-	v = 0;
-	while (is_digit(*s))
+	while (ft_isdigit(*p))
 	{
-		v = v * 10 + *(s++) - '0';
-		if (is_illegal(v, sign))
+		c = c * 10 + *(p++) - '0';
+		if (ft_isillegal(c, vz))
 			return (0);
-		// ...
 	}
-	return (sign * v);
+	return ((int)(c * vz));
 }
-*/
