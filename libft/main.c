@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/04 12:44:17 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/07 19:31:40 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,5 +171,27 @@ int	main(void)
 	printf(GREEN"%s\n"NC, "ft_strtrim (lo5-):");
 	printf("%s,%s\n", g,h);
 	printf("%s\n", ft_strtrim(g,h));
+
+	printf(GREEN"%s\n"NC, "ft_itoa ():");
+	printf("%ld\n", -2147483648);
+	printf("%s\n", ft_itoa(-2147483648));
+	printf("%d\n", 2147483647);
+	printf("%s\n", ft_itoa(2147483647));
+	printf("%d\n", 0);
+	printf("%s\n", ft_itoa(0));
+	printf("%d\n", 214748);
+	printf("%s\n", ft_itoa(214748));
+
+	char **d;
+	//int	e = 0;
+	printf(GREEN"%s\n"NC, "ft_split ():");
+	printf("Input:%s\n", "__fg_fr___yuh___");
+	printf("Expected:%s,%s,%s\nGot:\n", "fg","fr","yuh");
+	d = ft_split("__fg_fr___yuh___", 'A');
+	// while (e < 3)
+	// {
+		printf("STR = %s|||||||||\n", d[0]);
+		// e++;
+	// }
 	return (0);
 }

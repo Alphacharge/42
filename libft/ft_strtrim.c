@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 10:59:32 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/06 17:52:09 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/07 20:14:41 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*ptr;
 
 	pos1 = 0;
-	pos2 = ft_strlen(s1);
 	ptr = NULL;
 	if (s1 == NULL || set == NULL)
 		return (NULL);
+	pos2 = ft_strlen(s1);
 	while (ft_isinset(s1[pos1], set))
 		pos1++;
 	while (pos2 > pos1 && ft_isinset(s1[pos2 - 1], set))
