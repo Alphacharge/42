@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 10:26:58 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/29 17:25:30 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/07 09:25:47 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		dstsize = dl;
 	if (dstsize <= 0)
 		return (sl);
-	ft_memcpy(dst, src, (dstsize));
+	ft_memcpy(dst, src, dstsize);
 	dst[dstsize - 1] = '\0';
 	return (sl);
 }
