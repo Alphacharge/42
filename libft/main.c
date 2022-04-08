@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/07 19:31:40 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/08 17:01:20 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,12 @@ int	main(void)
 
 	printf(GREEN"%s\n"NC, "ft_memchr (llo5-):");
 	printf("%s\n", y);
-//	printf("%s\n", ft_memchr(y, 'l', 4));
+	printf("%s\n", ft_memchr(y, 108+256, 4));
 	printf(RED"%s\n"NC, "EDGECASE__ft_memchr ():");
 	printf("%s\n", y);
-//	printf("%s\n", ft_memchr(y, 'l', 1));
+	printf("%s\n", ft_memchr(y, 'l', 1));
+	printf("%s\n", memchr(y, 'l'+256, 3));
+	printf("%s\n", ft_memchr(y, 'l'+256, 3));
 
 	printf(GREEN"%s\n"NC, "ft_memcmp (-19):");
 	printf("%s\n", y);
@@ -133,6 +135,7 @@ int	main(void)
 //	printf("%s\n", ft_strnstr(g, h, 12));
 	printf(RED"%s\n"NC, "EDGECASE__ft_strnstr (0):");
 	printf("%s,%s,%d\n", g,h,2);
+//	printf("%s\n",ft_strnstr("lorem ipsum dolor sit amet", "dolor", 15));
 //	printf("%s\n", ft_strnstr(g, h, 2));
 
 	printf(GREEN"%s\n"NC, "ft_atoi (0,1548):");
@@ -183,15 +186,21 @@ int	main(void)
 	printf("%s\n", ft_itoa(214748));
 
 	char **d;
-	//int	e = 0;
+	int	e = 0;
 	printf(GREEN"%s\n"NC, "ft_split ():");
 	printf("Input:%s\n", "__fg_fr___yuh___");
 	printf("Expected:%s,%s,%s\nGot:\n", "fg","fr","yuh");
-	d = ft_split("__fg_fr___yuh___", 'A');
-	// while (e < 3)
-	// {
-		printf("STR = %s|||||||||\n", d[0]);
-		// e++;
-	// }
+	d = ft_split("__fg_fr___yuh___", '_');
+	 while (e < 3)
+	 {
+		printf("STR = %s\n", d[e]);
+		 e++;
+	}
+	printf(GREEN"%s\n"NC, "ft_putnbr_fd (123456):");
+	ft_putnbr_fd(123456, 1);
+	ft_putnbr_fd(-123456, 1);
+	ft_putnbr_fd(0, 1);
+	ft_putnbr_fd(-2147483648, 1);
+	ft_putnbr_fd(2147483647, 1);
 	return (0);
 }

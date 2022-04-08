@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 09:59:11 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/08 15:21:41 by rbetz            ###   ########.fr       */
+/*   Created: 2022/04/08 15:22:54 by rbetz             #+#    #+#             */
+/*   Updated: 2022/04/08 15:41:11 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	const char	*p;
+	char			*p;
+	unsigned int	i;
 
-	p = (const char *)s;
-	while (n-- > 0)
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	p = ft_strdup(s);
+	if (p == NULL)
+		return (NULL);
+	while (s[i] != '\0')
 	{
-		if (*p == c)
-			return ((void *)p);
-		p++;
+		p[i] = f(i, s[i]);
+		i++;
 	}
-	return (NULL);
+	return (p);
 }
-	// while ((p[i] != '\0') && (p[i] != c) && (i < n))
-	// 	i++;
-	// if ((p[i] == '\0' && p[i] != c) || (i == n && p[i] != c))
-	// 	return (0);
-	// else
-	// 	return (&p[i]);

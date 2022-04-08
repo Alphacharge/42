@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 09:59:11 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/08 15:21:41 by rbetz            ###   ########.fr       */
+/*   Created: 2022/04/08 15:45:31 by rbetz             #+#    #+#             */
+/*   Updated: 2022/04/08 15:54:39 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	const char	*p;
+	unsigned int	i;
 
-	p = (const char *)s;
-	while (n-- > 0)
+	i = 0;
+	if (s != NULL)
 	{
-		if (*p == c)
-			return ((void *)p);
-		p++;
+		while (s[i] != '\0')
+		{
+			f(i, &s[i]);
+			i++;
+		}
 	}
-	return (NULL);
 }
-	// while ((p[i] != '\0') && (p[i] != c) && (i < n))
-	// 	i++;
-	// if ((p[i] == '\0' && p[i] != c) || (i == n && p[i] != c))
-	// 	return (0);
-	// else
-	// 	return (&p[i]);

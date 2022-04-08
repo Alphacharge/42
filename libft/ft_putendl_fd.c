@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/28 09:59:11 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/08 15:21:41 by rbetz            ###   ########.fr       */
+/*   Created: 2022/04/08 16:18:47 by rbetz             #+#    #+#             */
+/*   Updated: 2022/04/08 16:21:08 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	ft_putendl_fd(char *s, int fd)
 {
-	const char	*p;
-
-	p = (const char *)s;
-	while (n-- > 0)
+	if (s != NULL)
 	{
-		if (*p == c)
-			return ((void *)p);
-		p++;
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
 	}
-	return (NULL);
 }
-	// while ((p[i] != '\0') && (p[i] != c) && (i < n))
-	// 	i++;
-	// if ((p[i] == '\0' && p[i] != c) || (i == n && p[i] != c))
-	// 	return (0);
-	// else
-	// 	return (&p[i]);
