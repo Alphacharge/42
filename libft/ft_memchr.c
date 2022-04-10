@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 09:59:11 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/08 15:21:41 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/10 13:41:52 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,9 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	p = (const char *)s;
 	while (n-- > 0)
 	{
-		if (*p == c)
+		if (*p == (char)c)
 			return ((void *)p);
 		p++;
 	}
 	return (NULL);
 }
-	// while ((p[i] != '\0') && (p[i] != c) && (i < n))
-	// 	i++;
-	// if ((p[i] == '\0' && p[i] != c) || (i == n && p[i] != c))
-	// 	return (0);
-	// else
-	// 	return (&p[i]);

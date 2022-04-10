@@ -6,15 +6,18 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 09:59:11 by rbetz             #+#    #+#             */
-/*   Updated: 2022/03/28 12:12:06 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/10 13:36:37 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
-	while ((*s != '\0') && (*s != c))
+	char	x;
+
+	x = (char)c;
+	while ((*s != '\0') && (*s != x))
 		s++;
-	if ((*s == '\0') && (*s != c))
+	if ((*s == '\0') && (*s != x))
 		return (0);
 	else
 		return ((char *)s);
