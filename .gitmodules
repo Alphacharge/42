@@ -7,3 +7,9 @@
 [submodule "libfttester"]
 	path = libfttester
 	url = git@github.com:Tripouille/libftTester.git
+[submodule "libftpain"]
+	path = libftpain
+	url = https://github.com/Bluegales/libft-pain
+[submodule "splittest"]
+	path = splittest
+	url = git@github.com:Ysoroko/FT_SPLIT_TESTER.git

@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/10 17:49:24 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/11 11:10:56 by rbetz            ###   ########.fr       */
+/*   Created: 2022/04/11 19:06:36 by rbetz             #+#    #+#             */
+/*   Updated: 2022/04/11 19:06:47 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+
+void ft_lstiter(t_list *lst, void (*f)(void *));
 {
-	t_list	*ptr;
-
-	ptr = malloc(sizeof(t_list));
-	if (ptr == NULL)
-		return (NULL);
-	ptr->content = content;
-	ptr->next = NULL;
-	return (ptr);
+	
 }

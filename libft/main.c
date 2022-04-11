@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/08 17:01:20 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/11 15:33:03 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,5 +202,22 @@ int	main(void)
 	ft_putnbr_fd(0, 1);
 	ft_putnbr_fd(-2147483648, 1);
 	ft_putnbr_fd(2147483647, 1);
+	write(1, "\n", 1);
+	
+	t_list *head;
+	head = ft_lstnew(w);
+	ft_lstadd_front(&head, ft_lstnew(g));
+	t_list *tmp = head;
+	while (tmp != NULL)
+	{
+		printf("String is:%s\n", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("Listsize is:%d\n", ft_lstsize(head));
+	printf("last Element is:%s\n", ft_lstlast(head)->content);
+	printf("Listsize is:%d\n", ft_lstsize(head));
+	ft_lstadd_back(&head, ft_lstnew(i));
+	printf("last Element is:%s\n", ft_lstlast(head)->content);
+	printf("Listsize is:%d\n", ft_lstsize(head));
 	return (0);
 }
