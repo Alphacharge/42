@@ -6,13 +6,13 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 14:19:54 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/11 20:21:36 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/11 21:18:12 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char	**ft_free_arr(char **ptr, int words)
+static void	ft_free_arr(char **ptr, int words)
 {
 	words++;
 	while (ptr[words] != NULL)
@@ -21,19 +21,18 @@ static char	**ft_free_arr(char **ptr, int words)
 		words++;
 	}
 	free(ptr);
-	return (NULL);
 }
 
-// static char	*ft_copy(const char *s, int i, int j)
-// {
-// 	char	*p;
+static char	*ft_copy(const char *s, int i, int j)
+{
+	char	*p;
 
-// 	p = ft_calloc(j + 1, 1);
-// 	if (p == NULL)
-// 		return (NULL);
-// 	ft_memcpy(p, &s[i - j + 1], j);
-// 	return (p);
-// }
+	p = ft_calloc(j + 1, 1);
+	if (p == NULL)
+		return (NULL);
+	ft_memcpy(p, &s[i - j + 1], j);
+	return (p);
+}
 
 static int	ft_wordcount(char const *s, char c)
 {
@@ -69,15 +68,17 @@ char	**ft_split(char const *s, char c)
 		{
 			j = 1;
 			words--;
-			while (s[i - j] != c && j <= i)
+			while (j <= i && s[i - j] != c)
 				j++;
-			ptr[words] = ft_substr(s, i - j + 1, j); // u can use ft_substr instead of "ft_copy"
+			ptr[words] = ft_copy(s, i, j);
 			if (ptr[words] == NULL)
-				return (ft_free_arr(ptr, words)); // I saved u some lines here
-			i = i - j + 1; // warum war hier ein + 1 kein unterschied 
+			{
+				ft_free_arr(ptr, words);
+				return (NULL);
+			}
+			i = i - j + 1;
 		}
-		if (i != 0)
-			i--;
+		i--;
 	}
 	return (ptr);
 }

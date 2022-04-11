@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/11 15:33:03 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/11 21:16:37 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -190,8 +190,9 @@ int	main(void)
 	printf(GREEN"%s\n"NC, "ft_split ():");
 	printf("Input:%s\n", "__fg_fr___yuh___");
 	printf("Expected:%s,%s,%s\nGot:\n", "fg","fr","yuh");
-	d = ft_split("__fg_fr___yuh___", '_');
-	 while (e < 3)
+	// d = ft_split("__fg_fr___yuh___", '_');
+	d = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+	 while (d[e] != NULL)
 	 {
 		printf("STR = %s\n", d[e]);
 		 e++;
