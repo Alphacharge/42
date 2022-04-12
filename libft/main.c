@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 12:38:25 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/11 21:16:37 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/12 10:38:26 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -220,5 +220,6 @@ int	main(void)
 	ft_lstadd_back(&head, ft_lstnew(i));
 	printf("last Element is:%s\n", ft_lstlast(head)->content);
 	printf("Listsize is:%d\n", ft_lstsize(head));
+
 	return (0);
 }

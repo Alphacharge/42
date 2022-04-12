@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 18:25:58 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/11 19:03:15 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/12 17:16:31 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	t_list	*tmp;
-
-	tmp = lst->next;
-	lst->next = tmp->next;
-	del (lst);
-	free(&lst);
+	if (lst != NULL)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

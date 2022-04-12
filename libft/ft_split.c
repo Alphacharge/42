@@ -6,13 +6,13 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 14:19:54 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/11 21:18:12 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/12 14:12:34 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_free_arr(char **ptr, int words)
+static char	**ft_free_arr(char **ptr, int words)
 {
 	words++;
 	while (ptr[words] != NULL)
@@ -21,6 +21,7 @@ static void	ft_free_arr(char **ptr, int words)
 		words++;
 	}
 	free(ptr);
+	return (NULL);
 }
 
 static char	*ft_copy(const char *s, int i, int j)
@@ -67,15 +68,11 @@ char	**ft_split(char const *s, char c)
 		if (s[i] != c)
 		{
 			j = 1;
-			words--;
 			while (j <= i && s[i - j] != c)
 				j++;
-			ptr[words] = ft_copy(s, i, j);
+			ptr[--words] = ft_copy(s, i, j);
 			if (ptr[words] == NULL)
-			{
-				ft_free_arr(ptr, words);
-				return (NULL);
-			}
+				return (ft_free_arr(ptr, words));
 			i = i - j + 1;
 		}
 		i--;
