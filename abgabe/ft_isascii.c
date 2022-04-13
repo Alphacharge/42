@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 11:37:56 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/13 14:13:57 by rbetz            ###   ########.fr       */
+/*   Created: 2022/03/24 13:02:47 by rbetz             #+#    #+#             */
+/*   Updated: 2022/03/25 17:34:53 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_isascii(int c)
 {
-	new->next = *lst;
-	*lst = new;
+	if (c >= 0 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

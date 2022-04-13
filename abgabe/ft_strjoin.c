@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 11:37:56 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/13 14:13:57 by rbetz            ###   ########.fr       */
+/*   Created: 2022/04/04 10:31:29 by rbetz             #+#    #+#             */
+/*   Updated: 2022/04/06 16:58:31 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	new->next = *lst;
-	*lst = new;
+	char	*p1;
+
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	p1 = malloc(ft_strlen(s1)+ft_strlen(s2)+1 * sizeof(char));
+	if (p1 == NULL)
+		return (NULL);
+	ft_memcpy(p1, s1, (size_t)ft_strlen(s1));
+	ft_memcpy(&p1[ft_strlen(s1)], s2, (size_t)ft_strlen(s2)+1);
+	return (p1);
 }

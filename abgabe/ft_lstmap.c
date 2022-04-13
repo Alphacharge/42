@@ -6,22 +6,11 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:15:33 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/13 14:13:32 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/12 17:33:59 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_check(t_list *head)
-{
-	if (head->content == NULL)
-	{
-		free(head);
-		return (NULL);
-	}
-	else
-		return (1);
-}
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
@@ -32,8 +21,11 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	newhead = ft_lstnew(f(lst->content));
 	tmp = newhead;
-	if (!ft_check(newhead))
+	if (newhead->content == NULL)
+	{
+		free(newhead);
 		return (NULL);
+	}
 	lst = lst->next;
 	while (lst != NULL)
 	{

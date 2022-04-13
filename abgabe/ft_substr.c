@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 11:37:56 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/13 14:13:57 by rbetz            ###   ########.fr       */
+/*   Created: 2022/04/01 16:08:36 by rbetz             #+#    #+#             */
+/*   Updated: 2022/04/06 17:01:11 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	new->next = *lst;
-	*lst = new;
+	size_t	size;
+	char	*ptr;
+
+	if (s == NULL)
+		return (NULL);
+	size = (size_t)ft_strlen(s);
+	if (start >= size)
+		return (ft_strdup(""));
+	ptr = malloc(len + 1);
+	if (ptr == NULL)
+		return (NULL);
+	ft_memcpy(ptr, &s[start], len);
+	ptr[len] = '\0';
+	return (ptr);
 }

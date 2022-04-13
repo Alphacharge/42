@@ -6,16 +6,16 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 14:11:26 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/11 14:25:48 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/13 14:05:51 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
 	int	i;
-	
+
 	i = 0;
 	while (lst != NULL)
 	{
