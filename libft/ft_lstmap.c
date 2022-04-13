@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 11:15:33 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/13 14:13:32 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/13 15:18:29 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_check(t_list *head)
 	if (head->content == NULL)
 	{
 		free(head);
-		return (NULL);
+		return (0);
 	}
 	else
 		return (1);
