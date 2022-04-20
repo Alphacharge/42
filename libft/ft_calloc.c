@@ -6,7 +6,7 @@
 /*   By: rbetz <rbetz@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/01 15:44:14 by rbetz             #+#    #+#             */
-/*   Updated: 2022/04/12 15:24:12 by rbetz            ###   ########.fr       */
+/*   Updated: 2022/04/20 17:05:17 by rbetz            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*ft_calloc(size_t count, size_t size)
 		size = 1;
 		count = 1;
 	}
-	if (count > SIZE_MAX / size)
+	if (count > 18446744073709551615UL / size)
 		return (NULL);
 	ptr = malloc(count * size);
 	if (ptr == NULL)
